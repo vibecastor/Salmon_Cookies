@@ -48,13 +48,47 @@ store1.calcTotalCookiesSoldPerDay();
 store1.addElement();
 
 
-
-
-
-
-
-
-// hourlyCustomers: [],
-//   customersPerHour [ ] need a method to calculate it...
-//   totalCookiesNeededPerDay:   need a method to calc. [i]
-// 	cookiesSoldPerHour = [ ] need a method to calculate it...
+var store2 = {
+  minCustomerPerHour: 3,
+  maxCustomerPerHour: 24,
+  avgCookiesPerSale: 1.2,
+  customersPerHourArray: [],
+  cookiesPerHourArray: [],
+  customersPerHour: function () {
+    for (var i = 0; i < hoursPerDay.length; i++) {
+      this.customersPerHourArray.push(Math.floor(Math.random() * (this.maxCustomerPerHour - this.minCustomerPerHour + 1)) + this.minCustomerPerHour);
+    }
+  },
+  cookiesPerHour: function() {
+    for (var i = 0; i < hoursPerDay.length; i++) {
+      this.cookiesPerHourArray.push(Math.floor(this.customersPerHourArray[i] * this.avgCookiesPerSale));
+    }
+  },
+  calcTotalCookiesSoldPerDay: function() {
+    this.totalCookiesSoldPerDay = 0;
+    for (var i = 0; i < hoursPerDay.length; i++) {
+      this.totalCookiesSoldPerDay += this.cookiesPerHourArray[i];
+    }
+  },
+  addElement: function () {
+    var ulEl = document.getElementById('SeaTac Airport');
+    for (var i = 0; i < this.cookiesPerHourArray.length; i++) {
+      //create an element
+      var liEl = document.createElement('li');
+      //adding content
+      liEl.textContent = hoursPerDay[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+      //appending to the DOM
+      //parent.appendChild(child)
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    //"Total:  657 cookies"
+    liEl.className = 'total';
+    liEl.textContent = 'Total ' + this.totalCookiesSoldPerDay + ' cookies';
+    ulEl.appendChild(liEl);
+  },
+};
+store2.customersPerHour();
+store2.cookiesPerHour();
+store2.calcTotalCookiesSoldPerDay();
+store2.addElement();
