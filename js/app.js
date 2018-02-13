@@ -22,7 +22,7 @@ var store1 = {
       //create an element
       var liEl = document.createElement('li');
       //adding content
-      liEl.textContent = hoursPerDay[i] + ':' + this.cookiesPerHourArray[i];
+      liEl.textContent = hoursPerDay[i] + ': ' + this.cookiesPerHourArray[i];
       //appending to the DOM
       //parent.appendChild(child)
       ulEl.appendChild(liEl);
