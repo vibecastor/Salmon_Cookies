@@ -31,11 +31,15 @@ var store1 = {
       var liEl = document.createElement('li');
       //adding content
       liEl.textContent = hoursPerDay[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
-      //concatinate 'cookies' in line 29
       //appending to the DOM
       //parent.appendChild(child)
       ulEl.appendChild(liEl);
     }
+    liEl = document.createElement('li');
+    //"Total:  657 cookies"
+    liEl.className = 'total';
+    liEl.textContent = 'Total ' + this.totalCookiesSoldPerDay + ' cookies';
+    ulEl.appendChild(liEl);
   },
 };
 store1.customersPerHour();
