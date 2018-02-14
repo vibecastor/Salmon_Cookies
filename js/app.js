@@ -6,6 +6,8 @@ var hoursPerDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2
 
 var stores = [];
 
+var storeTable = document.getElementById('storeData');
+
 //constructor function
 
 function CookieStore(storeName, storeID, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSale) {
@@ -52,21 +54,76 @@ CookieStore.prototype.calcTotalCookiesSoldPerDay = function() {
 //   //return this;
 // };
 CookieStore.prototype.addElement = function () {
-  var ulEl = document.getElementById(this.storeID);
-  for (var i = 0; i < this.cookiesPerHourArray.length; i++) {
-    //create an element
-    var liEl = document.createElement('li');
-    //adding content
-    liEl.textContent = hoursPerDay[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
-    //appending to the DOM
-    //parent.appendChild(child)
-    ulEl.appendChild(liEl);
-  }
-  liEl = document.createElement('li');
-  liEl.className = 'total';
-  liEl.textContent = 'Total ' + this.totalCookiesSoldPerDay + ' cookies';
-  ulEl.appendChild(liEl);
+  //create tr
+  var trEl = document.createElement('tr');
+  //create td
+  var tdEl = document.createElement('td');
+  //give td content
+  tdEl.textContent = this.storeName;
+  //append the td
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.storeName;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.storeName;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.storeName;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.storeName;
+  trEl.appendChild(tdEl);
+  //append the tr to the table
+  storeTable.appendChild(trEl);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   var ulEl = document.getElementById(this.storeID);
+//   for (var i = 0; i < this.cookiesPerHourArray.length; i++) {
+//     //create an element
+//     var liEl = document.createElement('li');
+//     //adding content
+//     liEl.textContent = hoursPerDay[i] + ': ' + this.cookiesPerHourArray[i] + ' cookies';
+//     //appending to the DOM
+//     //parent.appendChild(child)
+//     ulEl.appendChild(liEl);
+//   }
+//   liEl = document.createElement('li');
+//   liEl.className = 'total';
+//   liEl.textContent = 'Total ' + this.totalCookiesSoldPerDay + ' cookies';
+//   ulEl.appendChild(liEl);
+// };
 //function invocations
 new CookieStore('First and Pike', 'pike', 23, 65, 6.3);
 new CookieStore('SeaTac Airport', 'seatac', 3, 24, 1.2);
