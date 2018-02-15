@@ -59,55 +59,70 @@ CookieStore.prototype.addElement = function () {
   //create td
   var tdEl = document.createElement('td');
   //give td content
-  tdEl.textContent = this.storeName;
+  tdEl.textContent = this.stores;
   //append the td
   trEl.appendChild(tdEl);
   //create td
   tdEl = document.createElement('td');
-  tdEl.textContent = this.storeName;
+  tdEl.textContent = this.stores;
   trEl.appendChild(tdEl);
   //create td
   tdEl = document.createElement('td');
-  tdEl.textContent = this.storeName;
+  tdEl.textContent = this.stores;
   trEl.appendChild(tdEl);
   //create td
   tdEl = document.createElement('td');
-  tdEl.textContent = this.storeName;
+  tdEl.textContent = this.stores;
   trEl.appendChild(tdEl);
   //create td
   tdEl = document.createElement('td');
-  tdEl.textContent = this.storeName;
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
+  trEl.appendChild(tdEl);
+  //create td
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.stores;
   trEl.appendChild(tdEl);
   //append the tr to the table
   storeTable.appendChild(trEl);
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function makeStoreDataRows() {
+  for (var i = 0; 1 < stores.length; i++) {
+    stores[i].addElement(tdEl);
+  }
+}
 
 //   var ulEl = document.getElementById(this.storeID);
 //   for (var i = 0; i < this.cookiesPerHourArray.length; i++) {
@@ -130,3 +145,5 @@ new CookieStore('SeaTac Airport', 'seatac', 3, 24, 1.2);
 new CookieStore('Seattle Center', 'seattlecenter', 11, 38, 2.3);
 new CookieStore('Capitol Hill', 'caphill', 20, 38, 2.3);
 new CookieStore('Alki', 'alki', 2, 16, 4.6);
+
+makeStoreDataRows();
