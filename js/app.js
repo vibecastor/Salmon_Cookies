@@ -58,18 +58,19 @@ CookieStore.prototype.addElement = function () {
 };
 
 //create a tr element and a th element for the table header
-CookieStore.prototype.addElement = function () {
-  var trEL = document.createElement('tr');
-  var thEl = document.createElement('th');
-  thEl.textContent = this.storeName;
-  trEl.appendChild(thEl);
+function makeHeaderRow () {
+  var trElement = document.createElement('tr');
+  var thElement = document.createElement('th');
+  thElement.textContent = hoursPerDay.push[i];
+  trElement.appendChild(thElement);
   for (var i = 0; i < hoursPerDay.length; i++) {
-    thEl = document.createElement('th');
-    thEl.textContent = this.hoursPerDay[i];
-    trEl.appendChild(thEl);
+    thElement = document.createElement('th');
+    thElement.textContent = hoursPerDay[i];
+    trElement.appendChild(thElement);
   }
-  storeTable.appendChild(trEl);
-};
+  storeTable.appendChild(trElement);
+}
+makeHeaderRow();
 
 
 //function invocations
