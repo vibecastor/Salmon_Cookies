@@ -57,9 +57,25 @@ CookieStore.prototype.addElement = function () {
   storeTable.appendChild(trEl);
 };
 
+//create a tr element and a th element for the table header
+CookieStore.prototype.addElement = function () {
+  var trEL = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = this.storeName;
+  trEl.appendChild(thEl);
+  for (var i = 0; i < hoursPerDay.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = this.hoursPerDay[i];
+    trEl.appendChild(thEl);
+  }
+  storeTable.appendChild(trEl);
+};
+
+
 //function invocations
 new CookieStore('First and Pike', 'pike', 23, 65, 6.3);
 new CookieStore('SeaTac Airport', 'seatac', 3, 24, 1.2);
 new CookieStore('Seattle Center', 'seattlecenter', 11, 38, 2.3);
 new CookieStore('Capitol Hill', 'caphill', 20, 38, 2.3);
 new CookieStore('Alki', 'alki', 2, 16, 4.6);
+
