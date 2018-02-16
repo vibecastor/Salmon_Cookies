@@ -7,6 +7,8 @@ var stores = [];
 
 var storeTable = document.getElementById('storeData');
 
+// var dailyLocationTotals = document.getElementById('dailyTotals');
+
 //constructor function
 function CookieStore(storeName, storeID, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSale) {
   this.storeName = storeName;
@@ -21,6 +23,7 @@ function CookieStore(storeName, storeID, minCustomerPerHour, maxCustomerPerHour,
   this.customersPerHour();
   this.cookiesPerHour();
   this.calcTotalCookiesSoldPerDay();
+  this.sumCookiesPerHourArray();
   this.addElement();
   console.log('New cookie stand created for ' + this.storeName);
 }
@@ -47,14 +50,17 @@ CookieStore.prototype.addElement = function () {
   var tdEl = document.createElement('td');
   tdEl.textContent = this.storeName;
   trEl.appendChild(tdEl);
-  //loop that creates the td elements for the table - this overrides the td element created in line 47.
+  //loop that creates the td elements for the table - this overrides the td element created in line 47 and populates the table data with cookiesPerHour.
   for (var i = 0; i < hoursPerDay.length; i++) {
     tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesPerHourArray[i];
     trEl.appendChild(tdEl);
   }
-  //appends the tr to the table
+  var tdElementDaily = document.createElement('td');
+  tdElementDaily.textContent = this.totalCookiesSoldPerDay;
+  trEl.appendChild(tdElementDaily);
   storeTable.appendChild(trEl);
+  //appends the tr to the table
 };
 
 //create a tr element and a th element for the table header
@@ -63,7 +69,7 @@ function makeHeaderRow () {
   var thElement = document.createElement('th');
   thElement.textContent = hoursPerDay.push[i];
   trElement.appendChild(thElement);
-  for (var i = 0; i < hoursPerDay.length; i++) {
+  for (var i = 0; i < hoursPerDay.length+1; i++) {
     thElement = document.createElement('th');
     thElement.textContent = hoursPerDay[i];
     trElement.appendChild(thElement);
@@ -73,10 +79,46 @@ function makeHeaderRow () {
 makeHeaderRow();
 
 
+
+
+
+
+//make a footer function then call it below...Cookiestore.makeFooter();
+// CookieStore.prototype.sumCookiesPerHourArray = function(){
+//   for (var i = 0; i < hoursPerDay.length; i++ ) {
+//     this.cookiesPerHourArray.reduce;
+//   }
+//   function makeFooterRow() {
+//     var trElement = document.createElement('tr');
+//     var thElement = document.createElement('th');
+//     thElement.textContent = sumCookiesPerHourArray.push[i];
+//     trElement.appendChild(thElement);
+//     for (var i = 0; i < hoursPerDay.length+1; i++) {
+//       thElement = document.createElement('th');
+//       thElement.textContent = sumCookiesPerHourArray.push[1];
+//       trElement.appendChild(thElement);
+//     }
+//   }
+// };
+CookieStore.makeFooterRow();
+//   var trEl = document.createElement('tr');
+//   var thEl = document.createElement('th');
+//   thEl.textContent = this.;
+//   trEl.appendChild(tdEl);
+
+
+
+//loop through stores and figure out the math
+
+
+
+
+
 //function invocations
 new CookieStore('First and Pike', 'pike', 23, 65, 6.3);
 new CookieStore('SeaTac Airport', 'seatac', 3, 24, 1.2);
 new CookieStore('Seattle Center', 'seattlecenter', 11, 38, 2.3);
 new CookieStore('Capitol Hill', 'caphill', 20, 38, 2.3);
 new CookieStore('Alki', 'alki', 2, 16, 4.6);
+
 
